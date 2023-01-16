@@ -15,11 +15,19 @@ echo "##########################################################################
 
 
 
+echo "Install Docker Compose"
+sudo curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+echo "####################################################################################"
+
+
+
+
 echo "Installing systemd to enable systemctl"
 curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
 sudo chmod +x install.sh
 sudo ./install.sh install
-# sudo /opt/distrod/bin/distrod enable --start-on-windows-boot
 sudo /opt/distrod/bin/distrod enable
 echo "####################################################################################"
 
