@@ -82,9 +82,9 @@ nodes:
 EOF
 
 cat <<EOF > k3d.yaml
-apiVersion: 
+apiVersion: k3d.io/v1alpha3
 kind: Simple 
-name:
+name: multinode
 servers: 1 
 agents: 2
 EOF
