@@ -70,7 +70,7 @@ echo "##########################################################################
 
 
 
-echo "Define Config file for kind cluster"
+echo "Define Config file for kind cluster && k3d"
 cat <<EOF > kind.yaml
 # three node (two workers) cluster config
 kind: Cluster
@@ -79,5 +79,13 @@ nodes:
 - role: control-plane
 - role: worker
 - role: worker
+EOF
+
+cat <<EOF > k3d.yaml
+apiVersion: 
+kind: Simple 
+name:
+servers: 1 
+agents: 2
 EOF
 echo "###################################################################################################################################################################"
