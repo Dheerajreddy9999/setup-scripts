@@ -6,20 +6,10 @@ echo "##########################################################################
 
 
 
-echo "Installing systemd to enable systemctl"
-curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
-sudo chmod +x install.sh
-sudo ./install.sh install
-sudo /opt/distrod/bin/distrod enable
-echo "###################################################################################################################################################################"
-
-
 
 echo "Install docker && add user to docker group"
 sudo apt install docker.io -y 
 sudo usermod -a -G docker devops
-systemctl start docker
-systemctl enable docker
 echo "##################################################################################################################################################################"
 
 
@@ -30,6 +20,18 @@ sudo curl -SL https://github.com/docker/compose/releases/download/v2.15.1/docker
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 echo "###################################################################################################################################################################"
+
+
+
+
+echo "Installing systemd to enable systemctl"
+curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
+sudo chmod +x install.sh
+sudo ./install.sh install
+sudo /opt/distrod/bin/distrod enable
+echo "###################################################################################################################################################################"
+
+
 
 
 echo "Install Kind to create k8 cluster"
