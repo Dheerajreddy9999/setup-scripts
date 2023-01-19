@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Updating the Repos"
-sudo apt update
+sudo apt-get update
 echo "###################################################################################################################################################################"
 
 
@@ -71,7 +71,7 @@ echo "##########################################################################
 
 
 echo "Define Config file for kind cluster && k3d"
-cat <<EOF > kind.yaml
+sudo cat <<EOF > kind.yaml
 # three node (two workers) cluster config
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
@@ -80,5 +80,5 @@ nodes:
 - role: worker
 - role: worker
 EOF
-cat kind.yaml
+sudo cat kind.yaml
 echo "##################################################################################################################################################################"
