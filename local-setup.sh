@@ -97,8 +97,11 @@ sudo cat /home/devops/kind.yaml
 echo "##################################################################################################################################################################"
 
 
-echo "installing open-ssh &"
-sudo apt install openssh-server -y && apt install net-tools
+echo "installing open-ssh & net-tools"
+sudo apt install openssh-server -y && apt install net-tools -y
 sudo ufw allow ssh
 echo "##################################################################################################################################################################"
 
+echo "creating jenkins_Slave directory giving permissions to devops "
+sudo mkdir /opt/jenkins_slave
+sudo chown devops.devops /opt/jenkins_slave
