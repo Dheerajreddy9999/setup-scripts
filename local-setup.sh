@@ -71,8 +71,28 @@ echo "##########################################################################
 
 
 
+echo "installing open-ssh & net-tools"
+sudo apt install openssh-server -y && apt install net-tools -y
+sudo ufw allow ssh
+echo "##################################################################################################################################################################"
 
-echo "Define Config file for kind cluster && k3d"
+echo "creating jenkins_Slave directory giving permissions to devops "
+sudo mkdir /opt/jenkins_slave
+sudo chown devops.devops /opt/jenkins_slave
+echo "##################################################################################################################################################################"
+
+
+echo "Installing GitHub Cli"
+type -p curl >/dev/null || sudo apt install curl -y
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+echo "##################################################################################################################################################################"
+
+
+cho "Define Config file for kind cluster && k3d"
 sudo cat <<EOF > /home/devops/kind.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
@@ -99,24 +119,4 @@ sudo cat /home/devops/kind.yaml
 sudo cat /home/devops/k3d-config.yaml
 echo "##################################################################################################################################################################"
 
-
-echo "installing open-ssh & net-tools"
-sudo apt install openssh-server -y && apt install net-tools -y
-sudo ufw allow ssh
-echo "##################################################################################################################################################################"
-
-echo "creating jenkins_Slave directory giving permissions to devops "
-sudo mkdir /opt/jenkins_slave
-sudo chown devops.devops /opt/jenkins_slave
-echo "##################################################################################################################################################################"
-
-
-echo "Installing GitHub Cli"
-type -p curl >/dev/null || sudo apt install curl -y
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
-echo "##################################################################################################################################################################"
 
