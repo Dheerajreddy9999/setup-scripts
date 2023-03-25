@@ -106,10 +106,10 @@ kind: Simple
 metadata:
   name: mycluster
 servers: 1
-#agents: 1
-kubeAPI:
-  hostIP: "172.29.208.142"
-  hostPort: "6445"
+agents: 1
+# kubeAPI:
+#   hostIP: "172.29.208.142"
+#   hostPort: "6445"
 ports:
   - port: 8080:80
     nodeFilters:
