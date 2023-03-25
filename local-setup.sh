@@ -104,7 +104,7 @@ sudo cat <<EOF > /home/devops/k3d-config.yaml
 apiVersion: k3d.io/v1alpha4
 kind: Simple
 metadata:
-  name: mycluster
+  name: multinode
 servers: 1
 agents: 1
 # kubeAPI:
