@@ -93,7 +93,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 echo "##################################################################################################################################################################"
 
 
-cho "Define Config file for kind cluster && k3d"
+echo "Define Config file for kind cluster && k3d"
 sudo cat <<EOF > /home/devops/kind.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
