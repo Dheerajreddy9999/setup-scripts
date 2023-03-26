@@ -2,7 +2,7 @@
 
 echo "Updating the Repos && install tools"
 sudo apt update
-sudo apt install -y zip unzip
+sudo apt install -y zip unzip fish 
 echo "###################################################################################################################################################################"
 
 
