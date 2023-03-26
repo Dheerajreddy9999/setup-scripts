@@ -1,7 +1,8 @@
 #!/bin/bash
 
-echo "Updating the Repos"
+echo "Updating the Repos && install tools"
 sudo apt update
+sudo apt install -y zip unzip
 echo "###################################################################################################################################################################"
 
 
