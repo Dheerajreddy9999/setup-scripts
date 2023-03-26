@@ -73,7 +73,7 @@ echo "##########################################################################
 
 
 echo "installing open-ssh & net-tools"
-sudo sudo apt install openssh-server -y && sudo apt install net-tools -y
+sudo sudo apt install -y openssh-server net-tools 
 sudo ufw allow ssh
 echo "##################################################################################################################################################################"
 
