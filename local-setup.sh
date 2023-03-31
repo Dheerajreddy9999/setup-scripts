@@ -37,7 +37,7 @@ echo "##########################################################################
 
 
 echo "Install Kind to create k8 cluster"
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64
 sudo chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 echo "###################################################################################################################################################################"
