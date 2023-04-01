@@ -52,6 +52,15 @@ echo "##########################################################################
 
 
 
+echo "Install kubectl to connect with k8 cluster"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+echo "###################################################################################################################################################################"
+
+
+
 
 echo "Install helm to manage k8 manifests"
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
@@ -63,12 +72,11 @@ echo "##########################################################################
 
 
 
-echo "Install kubectl to connect with k8 cluster"
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-echo "###################################################################################################################################################################"
+echo "Install k9s cli to manage kubernetes"
+wget https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz
+tar -xzvf k9s_Linux_amd64.tar.gz
+mv k9s /usr/bin/k9s
+echo "##################################################################################################################################################################"
 
 
 
@@ -76,6 +84,7 @@ echo "installing open-ssh & net-tools"
 sudo sudo apt install -y openssh-server net-tools 
 sudo ufw allow ssh
 echo "##################################################################################################################################################################"
+
 
 echo "creating jenkins_Slave directory giving permissions to devops "
 sudo mkdir /opt/jenkins_slave
