@@ -71,6 +71,11 @@ sudo apt-get install helm
 echo "###################################################################################################################################################################"
 
 
+echo "Install helm komodor dashboard plugin"
+helm plugin install https://github.com/komodorio/helm-dashboard.git
+helm plugin update dashboard
+echo "##################################################################################################################################################################"
+
 
 echo "Install k9s cli to manage kubernetes"
 wget https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz
