@@ -52,13 +52,13 @@ echo "##########################################################################
 
 
 
+
 echo "Install kubectl to connect with k8 cluster"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 echo "###################################################################################################################################################################"
-
 
 
 
@@ -71,10 +71,12 @@ sudo apt-get install helm
 echo "###################################################################################################################################################################"
 
 
+
 echo "Install helm komodor dashboard plugin"
 helm plugin install https://github.com/komodorio/helm-dashboard.git
 helm plugin update dashboard
 echo "##################################################################################################################################################################"
+
 
 
 echo "Install k9s cli to manage kubernetes"
@@ -91,10 +93,12 @@ sudo ufw allow ssh
 echo "##################################################################################################################################################################"
 
 
+
 echo "creating jenkins_Slave directory giving permissions to devops "
 sudo mkdir /opt/jenkins_slave
 sudo chown devops.devops /opt/jenkins_slave
 echo "##################################################################################################################################################################"
+
 
 
 echo "Installing GitHub Cli"
@@ -105,6 +109,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt update \
 && sudo apt install gh -y
 echo "##################################################################################################################################################################"
+
 
 
 echo "Define Config file for kind cluster && k3d"
