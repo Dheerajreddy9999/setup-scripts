@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Updating the Repos && install tools"
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 sudo apt install -y zip unzip tree fish 
 echo "###################################################################################################################################################################"
 
