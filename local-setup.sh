@@ -10,7 +10,7 @@ echo "##########################################################################
 
 echo "Install docker && add user to docker group"
 sudo apt install docker.io -y 
-sudo usermod -a -G docker devops
+sudo usermod -a -G docker dheeraj
 echo "##################################################################################################################################################################"
 
 
