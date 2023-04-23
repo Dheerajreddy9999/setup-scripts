@@ -106,14 +106,28 @@ echo "##########################################################################
 
 
 echo "Define Config file for kind cluster && k3d"
-sudo cat <<EOF > /home/devops/kind.yaml
+sudo cat <<EOF > /home/dheeraj/kind.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
 - role: control-plane
-- role: worker
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 443
+    protocol: TCP
 EOF
-sudo cat <<EOF > /home/devops/k3d-config.yaml
+
+
+sudo cat <<EOF > /home/dheeraj/k3d-config.yaml
 apiVersion: k3d.io/v1alpha4
 kind: Simple
 metadata:
