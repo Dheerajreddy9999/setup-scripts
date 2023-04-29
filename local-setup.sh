@@ -27,7 +27,7 @@ echo "##########################################################################
 
 
 echo "Installing systemd to enable systemctl"
-sudo cat <<EOF > /etc/wsl.conf.
+sudo cat <<EOF > /etc/wsl.conf
 [boot]
 systemd=true
 EOF
