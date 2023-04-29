@@ -27,10 +27,14 @@ echo "##########################################################################
 
 
 echo "Installing systemd to enable systemctl"
-curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
-sudo chmod +x install.sh
-sudo ./install.sh install
-sudo /opt/distrod/bin/distrod enable
+sudo cat <<EOF > /etc/wsl.conf.
+[boot]
+systemd=true
+EOF
+# curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
+# sudo chmod +x install.sh
+# sudo ./install.sh install
+# sudo /opt/distrod/bin/distrod enable
 echo "###################################################################################################################################################################"
 
 
