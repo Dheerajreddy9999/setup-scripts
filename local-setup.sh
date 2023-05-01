@@ -26,11 +26,11 @@ echo "##########################################################################
 
 
 
-echo "Installing systemd to enable systemctl"
-sudo cat <<EOF > /etc/wsl.conf
-[boot]
-systemd=true
-EOF
+# echo "Installing systemd to enable systemctl"
+# sudo cat <<EOF > /etc/wsl.conf
+# [boot]
+# systemd=true
+# EOF
 # curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
 # sudo chmod +x install.sh
 # sudo ./install.sh install
