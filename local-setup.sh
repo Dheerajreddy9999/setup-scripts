@@ -8,18 +8,19 @@ echo "##########################################################################
 
 
 
-echo "Install docker && add user to docker group"
-sudo apt install docker.io -y 
+echo "Install docker, docker-compose && add user to docker group"
+sudo apt install -y docker.io docker-compose  
 sudo usermod -a -G docker dheeraj
 echo "##################################################################################################################################################################"
 
 
 
 
-echo "Install Docker Compose"
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+echo "Install kubectx,kubens"
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+
 echo "###################################################################################################################################################################"
 
 
