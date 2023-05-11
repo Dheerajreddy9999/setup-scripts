@@ -78,7 +78,7 @@ echo "##########################################################################
 
 
 echo "Install k9s cli to manage kubernetes"
-wget https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz
+wget https://github.com/derailed/k9s/releases/download/v0.27.4/k9s_Linux_amd64.tar.gz
 tar -xzvf k9s_Linux_amd64.tar.gz
 mv k9s /usr/bin/k9s
 echo "##################################################################################################################################################################"
