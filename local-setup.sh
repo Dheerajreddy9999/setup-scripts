@@ -143,9 +143,12 @@ agents: 1
 #   hostIP: "172.29.208.142"
 #   hostPort: "6445"
 ports:
-  - port: 8080:80
+  - port: 80:80
     nodeFilters:
       - loadbalancer
+  - port: 30080:30080
+    nodeFilters:
+      - server:*
 EOF
 sudo cat /home/devops/kind.yaml
 sudo cat /home/devops/k3d-config.yaml
