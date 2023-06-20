@@ -42,7 +42,7 @@ echo "##########################################################################
 
 
 echo "Install Kind to create k8 cluster"
-[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.19.0/kind-$(uname)-amd64
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
 sudo chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 echo "###################################################################################################################################################################"
