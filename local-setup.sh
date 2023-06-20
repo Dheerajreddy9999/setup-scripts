@@ -133,7 +133,7 @@ EOF
 
 
 sudo cat <<EOF > /home/dheeraj/k3d-config.yaml
-apiVersion: k3d.io/v1alpha4
+apiVersion: k3d.io/v1alpha5
 kind: Simple
 metadata:
   name: multinode
