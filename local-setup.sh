@@ -140,7 +140,7 @@ metadata:
 servers: 1
 agents: 1
 # kubeAPI:
-#   hostIP: "172.29.208.142"
+#   hostIP: "172.29.246.13"
 #   hostPort: "6445"
 ports:
   - port: 80:80
@@ -150,8 +150,8 @@ ports:
     nodeFilters:
       - server:*
 EOF
-sudo cat /home/devops/kind.yaml
-sudo cat /home/devops/k3d-config.yaml
+sudo cat /home/dheeraj/kind.yaml
+sudo cat /home/dheeraj/k3d-config.yaml
 echo "##################################################################################################################################################################"
 
 
