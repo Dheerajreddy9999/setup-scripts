@@ -138,15 +138,21 @@ kind: Simple
 metadata:
   name: multinode
 servers: 1
-agents: 1
-# kubeAPI:
-#   hostIP: "172.29.246.13"
-#   hostPort: "6445"
+#agents: 1
+#kubeAPI:
+  #hostIP: "172.29.246.13"
+  #hostPort: "6445"
 ports:
   - port: 80:80
     nodeFilters:
       - loadbalancer
   - port: 30080:30080
+    nodeFilters:
+      - server:*
+  - port: 30081:30081
+    nodeFilters:
+      - server:*
+  - port: 30000:30000
     nodeFilters:
       - server:*
 EOF
