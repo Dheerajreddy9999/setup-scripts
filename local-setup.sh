@@ -2,9 +2,17 @@
 
 set -x #debug mode
 
+echo "Enable Systemd "
+sudo cat <<EOF > /etc/wsl.conf
+[boot]
+systemd=true
+EOF
+echo "###################################################################################################################################################################"
+
+
 echo "Updating the Repos && install tools"
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y zip unzip tree fish 
+sudo apt install -y wget curl python3 vim zip unzip tree fish 
 echo "###################################################################################################################################################################"
 
 
