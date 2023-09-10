@@ -48,22 +48,6 @@ echo "##########################################################################
 
 
 
-
-
-# echo "Installing systemd to enable systemctl"
-# sudo cat <<EOF > /etc/wsl.conf
-# [boot]
-# systemd=true
-# EOF
-# curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
-# sudo chmod +x install.sh
-# sudo ./install.sh install
-# sudo /opt/distrod/bin/distrod enable
-echo "###################################################################################################################################################################"
-
-
-
-
 echo "Install Kind to create k8 cluster"
 [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
 sudo chmod +x ./kind
