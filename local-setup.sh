@@ -19,7 +19,20 @@ echo "##########################################################################
 
 
 echo "Install docker, docker-compose && add user to docker group"
-sudo apt install -y docker.io docker-compose  
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin  
 sudo usermod -a -G docker dheeraj
 echo "##################################################################################################################################################################"
 
@@ -121,6 +134,7 @@ echo "##########################################################################
 
 
 echo "Define Config file for kind cluster && k3d"
+rm -rf *
 sudo cat <<EOF > /home/dheeraj/kind.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
@@ -145,8 +159,6 @@ EOF
 sudo cat <<EOF > /home/dheeraj/k3d-config.yaml
 apiVersion: k3d.io/v1alpha5
 kind: Simple
-metadata:
-  name: multinode
 servers: 1
 #agents: 1
 #kubeAPI:
@@ -166,8 +178,10 @@ ports:
     nodeFilters:
       - server:*
 EOF
-sudo cat /home/dheeraj/kind.yaml
-sudo cat /home/dheeraj/k3d-config.yaml
+sudo chown dheeraj:dheeraj kind.yaml
+sudo chown dheeraj:dheeraj k3d-config.yaml
+sudo cp /home/dheeraj/kind.yaml /root
+sudo cp /home/dheeraj/k3d-config.yaml /root
 echo "##################################################################################################################################################################"
 
 
