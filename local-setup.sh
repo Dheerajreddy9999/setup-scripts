@@ -12,7 +12,7 @@ set -x #debug mode
 
 echo "Updating the Repos && install tools"
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y zsh zip unzip tree 
+sudo apt install -y zsh fonts-font-awesome zip unzip tree 
 
 # oh my zsh 
  # sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
