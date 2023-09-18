@@ -101,13 +101,6 @@ echo "##########################################################################
 
 
 
-echo "creating jenkins_Slave directory giving permissions to devops "
-sudo mkdir /opt/jenkins_slave
-sudo chown devops.devops /opt/jenkins_slave
-echo "##################################################################################################################################################################"
-
-
-
 echo "Installing GitHub Cli"
 type -p curl >/dev/null || sudo apt install curl -y
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
