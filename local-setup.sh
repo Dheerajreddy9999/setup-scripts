@@ -15,6 +15,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt install -y fish zip unzip tree 
 
+
 echo "###################################################################################################################################################################"
 
 
