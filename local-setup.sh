@@ -1,6 +1,8 @@
 #!/bin/bash
 
 set -x #debug mode
+set -e #exit the script when there is an error
+set -o pipefail
 
 # echo "Enable Systemd "
 # sudo cat <<EOF > /etc/wsl.conf
