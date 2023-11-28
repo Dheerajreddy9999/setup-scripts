@@ -90,7 +90,7 @@ echo "##########################################################################
 
 
 echo "Install k9s cli to manage kubernetes"
-wget https://github.com/derailed/k9s/releases/download/v0.27.4/k9s_Linux_amd64.tar.gz
+wget https://github.com/derailed/k9s/releases/download/v0.28.2/k9s_Linux_amd64.tar.gz
 tar -xzvf k9s_Linux_amd64.tar.gz
 mv k9s /usr/bin/k9s
 echo "##################################################################################################################################################################"
@@ -158,6 +158,10 @@ nodes:
     hostPort: 30081
   - containerPort: 30000
     hostPort: 30000
+  - containerPort: 31000
+    hostPort: 31000
+  - containerPort: 32000
+  - hostPort: 32000
 EOF
 
 
@@ -261,6 +265,12 @@ ports:
     nodeFilters:
       - server:*
   - port: 30000:30000
+    nodeFilters:
+      - server:*
+  - port: 31000:31000
+    nodeFilters:
+      - server:*
+  - port: 32000:32000
     nodeFilters:
       - server:*
 EOF
