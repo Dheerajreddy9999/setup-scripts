@@ -147,8 +147,9 @@ ports:
     nodeFilters:
       - server:*
 EOF
-sudo chown dheeraj:dheeraj kind-setup.sh
-sudo chown dheeraj:dheeraj k3d-config.yaml
+
+sudo chown dheeraj:dheeraj /home/dheeraj/kind-setup.sh
+sudo chown dheeraj:dheeraj /home/dheeraj/k3d-config.yaml
 sudo cp /home/dheeraj/kind-setup.sh /root
 sudo cp /home/dheeraj/k3d-config.yaml /root
 echo "##################################################################################################################################################################"
