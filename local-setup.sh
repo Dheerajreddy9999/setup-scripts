@@ -117,7 +117,7 @@ echo "##########################################################################
 
 echo "Define Config file for kind cluster && k3d"
 
-
+wget https://raw.githubusercontent.com/Dheerajreddy9999/setup-scripts/local-setup/kind-setup.sh > /home/dheeraj/kind-setup.sh
 
 sudo cat <<EOF > /home/dheeraj/k3d-config.yaml
 apiVersion: k3d.io/v1alpha5
